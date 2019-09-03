@@ -129,15 +129,13 @@ class Trainer():
 
             if epoch % self.weight_save_interval == 10:
                 generator.save_weights(
-                    '/gpfs/fs0/data/DeepLearning/sabedin/DeployedProjects/simple-3d-gan/data/weights/generator_' + str(
+                    '/DeployedProjects/simple-3d-gan/data/weights/generator_' + str(
                         epoch), True)
                 discriminator.save_weights(
-                    '/gpfs/fs0/data/DeepLearning/sabedin/DeployedProjects/simple-3d-gan/data/weights/discriminator_' + str(
+                    'DeployedProjects/simple-3d-gan/data/weights/discriminator_' + str(
                         epoch), True)
 
             if epoch % self.image_save_interval == 10:
                 generated_volumes = generator.predict(noise_sample, verbose=0)
                 # save_volumes_as_images(generated_volumes, n=10, prefix=str(epoch))
                 plot_volumes_as_images(generated_volumes)
-                # print(generated_volumes.shape)
-                # generated_volumes.dump('/gpfs/fs0/data/DeepLearning/sabedin/DeployedProjects/simple-3d-gan/data/generated-volumes/' + str(epoch))
